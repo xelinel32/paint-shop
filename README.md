@@ -1,4 +1,4 @@
-# vue-shop
+# paint-shop
 
 ## Project setup
 ```
