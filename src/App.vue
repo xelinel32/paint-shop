@@ -1,12 +1,18 @@
 <template>
   <div id="app">
-    <h1>Hello Vue</h1>
+    <div class="wrapper">
+      <main-wrapper></main-wrapper>
+    </div>
   </div>
 </template>
 
 <script>
+  import MainWrapper from '@/layouts/MainWrapper'
   export default {
     name: 'App',
+    components: {
+      MainWrapper,
+    },
   }
 </script>
 

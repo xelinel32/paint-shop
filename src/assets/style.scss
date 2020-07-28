@@ -6,11 +6,25 @@
 }
 
 body {
-  font-family: Consolas;
+  font-family: 'Consolas', sans-serif;
   font-weight: 400;
   font-size: 16px;
 }
 
 h1 {
   color: $black;
+}
+
+.wrapper {
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
 }
