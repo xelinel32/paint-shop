@@ -37,6 +37,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 2px 1px 10px -1px black;
     &__logo {
       width: 48px;
       img {
@@ -49,13 +50,18 @@
       display: flex;
       &-item {
         margin: 0 10px;
+        background-color: #fff;
+        padding: 10px 15px;
+        transition: background-color 0.3s linear;
         a {
           text-decoration: none;
           font-size: 18px;
           color: #000;
-          transition: color 0.3s linear;
+          transition: color 0.2s linear;
         }
         &.active {
+          background-color: #74b9ff;
+          border-radius: 4px;
           a {
             color: #fff;
           }

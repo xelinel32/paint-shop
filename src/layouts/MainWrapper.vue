@@ -1,7 +1,6 @@
 <template>
   <div class="main-wrapper">
     <div class="container">
-      <h1>Hello World</h1>
       <catalog></catalog>
       <cart></cart>
     </div>

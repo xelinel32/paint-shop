@@ -24,3 +24,43 @@ body {
   padding: 0 15px;
   margin: 0 auto;
 }
+
+.primary-title {
+  font-size: 36px;
+  margin-bottom: 50px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 2px;
+    display: block;
+    bottom: 0px;
+    left: 2px;
+    background-color: #ff0000;
+  }
+}
+
+.primary-btn {
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border: none;
+  background-color: #0984e3;
+  color: #000;
+  transition: background-color 0.3s linear, color 0.2s linear;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 50px;
+  margin-top: 20px;
+  outline: none;
+  &:hover {
+    background-color: #74b9ff;
+    color: #fff;
+  }
+  i {
+    line-height: 48px;
+  }
+}
