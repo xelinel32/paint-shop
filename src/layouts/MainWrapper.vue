@@ -1,21 +1,14 @@
 <template>
   <div class="main-wrapper">
     <div class="container">
-      <catalog></catalog>
-      <cart></cart>
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-  import Catalog from '@/components/catalog/Catalog'
-  import Cart from '@/components/cart/Cart'
   export default {
     name: 'MainWrapper',
-    components: {
-      Catalog,
-      Cart,
-    },
   }
 </script>
 

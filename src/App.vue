@@ -2,9 +2,7 @@
   <div id="app">
     <div class="wrapper">
       <navbar></navbar>
-      <main-wrapper>
-        <router-view></router-view>
-      </main-wrapper>
+      <main-wrapper></main-wrapper>
     </div>
   </div>
 </template>
@@ -21,4 +19,4 @@
   }
 </script>
 
-<style></style>
+<style lang="scss"></style>

@@ -6,4 +6,11 @@ module.exports = {
       errors: true,
     },
   },
+  // css: {
+  //   loaderOptions: {
+  //     sass: {
+  //       prependData: `@import "@/assets/styles/style.scss";`,
+  //     },
+  //   },
+  // },
 }

@@ -10,23 +10,28 @@
         tag="li"
         active-class="active"
         class="navbar__menu-item"
-        to="/onepage"
-        ><a href="#">OnePage</a></router-link
+        to="/managment"
+        ><a href="#">Managment</a></router-link
       >
       <router-link
         tag="li"
         active-class="active"
         class="navbar__menu-item"
-        to="/twopage"
-        ><a href="#">TwoPage</a></router-link
+        to="/contact"
+        ><a href="#">Contact</a></router-link
       >
+      <cart></cart>
     </ul>
   </div>
 </template>
 
 <script>
+  import Cart from '@/components/cart/Cart'
   export default {
     name: 'Navbar',
+    components: {
+      Cart,
+    },
   }
 </script>
 
@@ -48,6 +53,7 @@
     }
     &__menu {
       display: flex;
+      align-items: center;
       &-item {
         margin: 0 10px;
         background-color: #fff;

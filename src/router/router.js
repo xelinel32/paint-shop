@@ -7,11 +7,35 @@ const router = new Router({
   mode: 'history',
   routes: [
     {
-      name: 'home',
+      name: 'catalog',
       path: '/',
-      component: () => import('../layouts/MainWrapper.vue'),
+      component: () => import('../views/Catalog.vue'),
+      meta: {
+        title: 'Paint Shop | Home',
+      },
+    },
+    {
+      name: 'managment',
+      path: '/managment',
+      component: () => import('../views/Managment.vue'),
+      meta: {
+        title: 'Paint Shop | Managment',
+      },
+    },
+    {
+      name: 'contact',
+      path: '/contact',
+      component: () => import('../views/Contact.vue'),
+      meta: {
+        title: 'Paint Shop | Contact',
+      },
     },
   ],
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+  next()
 })
 
 export default router

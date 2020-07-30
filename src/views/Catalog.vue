@@ -2,7 +2,9 @@
   <div class="catalog">
     <h1 class="catalog__title primary-title">Catalog</h1>
     <div class="catalog__wrapper">
+      <loader v-if="!products.length"></loader>
       <catalog-item
+        v-else
         v-for="product in products"
         :key="product.id"
         :product="product"

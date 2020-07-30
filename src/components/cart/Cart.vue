@@ -1,6 +1,8 @@
 <template>
   <div class="cart">
-    <span>cart</span>
+    <router-link to="/cart">
+      <i class="material-icons">shopping_cart</i>
+    </router-link>
   </div>
 </template>
 
@@ -10,4 +12,11 @@
   }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+  .cart {
+    margin-left: 30px;
+    i {
+      color: #fff;
+    }
+  }
+</style>
