@@ -13,6 +13,15 @@
       <li>
         Price: <strong>{{ product.price }} USD</strong>
       </li>
+      <li>
+        Category: <strong>{{ product.category }}</strong>
+      </li>
+      <li>
+        Availability:
+        <strong :class="product.available ? 'active' : 'no-active'">{{
+          product.available ? 'Yes' : 'No'
+        }}</strong>
+      </li>
     </ul>
     <p>{{ product.description }}</p>
     <div class="catalog-item__group">
@@ -37,8 +46,8 @@
       },
     },
     methods: {
-      addToCart(id) {
-        this.$emit('addToCart', id)
+      addToCart() {
+        this.$store.dispatch('ADD_TO_CART', this.product)
       },
     },
   }
@@ -70,6 +79,16 @@
         font-size: 16px;
         strong {
           font-weight: 700;
+          &.active {
+            background: greenyellow;
+            padding: 2px 5px;
+            border-radius: 3px;
+          }
+          &.no-active {
+            background: indianred;
+            padding: 2px 5px;
+            border-radius: 3px;
+          }
         }
       }
     }

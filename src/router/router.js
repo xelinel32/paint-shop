@@ -30,6 +30,15 @@ const router = new Router({
         title: 'Paint Shop | Contact',
       },
     },
+    {
+      name: 'cartpage',
+      path: '/cart',
+      component: () => import('../views/CartPage.vue'),
+      props: true,
+      meta: {
+        title: 'Paint Shop | Cart',
+      },
+    },
   ],
 })
 

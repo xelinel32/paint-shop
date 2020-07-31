@@ -8,7 +8,6 @@
         v-for="product in PRODUCTS"
         :key="product.id"
         :product="product"
-        @addToCart="addToCart"
       >
       </catalog-item>
     </div>
@@ -31,11 +30,8 @@
     },
     methods: {
       ...mapActions(['FETCH_PRODUCTS']),
-      addToCart(id) {
-        console.log('Identifier elements ' + id)
-      },
     },
-    async mounted() {
+    mounted() {
       this.FETCH_PRODUCTS().then((data) => {
         if (data.length) {
           this.isLoading = false
@@ -47,7 +43,6 @@
 
 <style lang="scss">
   .catalog {
-    padding: 50px 0;
     &__wrapper {
       display: flex;
       flex-wrap: wrap;

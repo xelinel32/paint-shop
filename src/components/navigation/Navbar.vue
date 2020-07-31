@@ -20,15 +20,19 @@
         to="/contact"
         ><a href="#">Contact</a></router-link
       >
-      <cart></cart>
+      <cart :cart="CART"></cart>
     </ul>
   </div>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   import Cart from '@/components/cart/Cart'
   export default {
     name: 'Navbar',
+    computed: {
+      ...mapGetters(['CART']),
+    },
     components: {
       Cart,
     },
