@@ -2,7 +2,9 @@
   <div class="cart-page">
     <div class="cart-page__head">
       <p v-if="!CART.length">Корзина пуста</p>
-      <p>Сумма: <b>0 USD</b></p>
+      <p>
+        Сумма: <b>{{ cartCost }} USD</b>
+      </p>
     </div>
     <cart-item
       v-for="(i, idx) in CART"
@@ -23,6 +25,19 @@
     },
     computed: {
       ...mapGetters(['CART']),
+      cartCost() {
+        if (this.CART.length) {
+          let resultCost = []
+          resultCost = this.CART.map((item) => {
+            return item.price * item.quantity
+          }).reduce((all, item) => {
+            return all + item
+          }, 0)
+          return resultCost
+        } else {
+          return 0
+        }
+      },
     },
     methods: {
       deleteFromCart(idx) {

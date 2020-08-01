@@ -10,6 +10,7 @@ const router = new Router({
       name: 'catalog',
       path: '/',
       component: () => import('../views/Catalog.vue'),
+      props: true,
       meta: {
         title: 'Paint Shop | Home',
       },

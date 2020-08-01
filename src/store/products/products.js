@@ -18,10 +18,24 @@ export default {
           item.quantity++
         }
       })
-      isProductExist || state.cart.push(product)
+      isProductExist || state.cart.push({ ...product, quantity: 1 })
     },
     UNSET_ITEM_CART(state, idx) {
       state.cart.splice(idx, 1)
+    },
+    PLUS_PROD_IN_CART(state, id) {
+      state.cart.find((item) => {
+        if (item.id === id) {
+          item.quantity++
+        }
+      })
+    },
+    MINUS_PROD_IN_CART(state, id) {
+      state.cart.find((item) => {
+        if (item.id === id) {
+          item.quantity > 1 ? item.quantity-- : (item.quantity = 1)
+        }
+      })
     },
   },
   actions: {
@@ -42,6 +56,12 @@ export default {
     },
     DEL_FROM_CART({ commit }, idx) {
       commit('UNSET_ITEM_CART', idx)
+    },
+    PLUS_PROD({ commit }, id) {
+      commit('PLUS_PROD_IN_CART', id)
+    },
+    MINUS_PROD({ commit }, id) {
+      commit('MINUS_PROD_IN_CART', id)
     },
   },
   getters: {

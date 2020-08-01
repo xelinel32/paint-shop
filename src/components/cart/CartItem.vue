@@ -18,7 +18,16 @@
         Availability: <strong>{{ cartSingle.available ? 'Yes' : 'No' }}</strong>
       </li>
     </ul>
-    <div class="cart-item__quantity">{{ cartSingle.quantity }}</div>
+    <div class="cart-item__quantity">
+      <span @click="minusProd">-</span>
+      <input
+        @keypress.enter="plusProd"
+        type="text"
+        :value="cartSingle.quantity"
+        disabled
+      />
+      <span @click="plusProd">+</span>
+    </div>
     <button class="cart-item__btn" @click="deleteCartItem">
       <i class="material-icons">highlight_off</i>
     </button>
@@ -38,6 +47,12 @@
     methods: {
       deleteCartItem() {
         this.$emit('deleteFromCart')
+      },
+      plusProd() {
+        this.$store.dispatch('PLUS_PROD', this.cartSingle.id)
+      },
+      minusProd() {
+        this.$store.dispatch('MINUS_PROD', this.cartSingle.id)
       },
     },
   }
@@ -67,6 +82,20 @@
         strong {
           font-weight: 700;
         }
+      }
+    }
+    &__quantity {
+      input {
+        width: 30px;
+        text-align: center;
+        margin: 0 10px;
+        border-radius: 5px;
+        border: none;
+        background: transparent;
+      }
+      span {
+        font-size: 18px;
+        cursor: pointer;
       }
     }
   }
