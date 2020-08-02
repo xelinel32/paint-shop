@@ -25,7 +25,11 @@
     </ul>
     <p>{{ product.description }}</p>
     <div class="catalog-item__group">
-      <button @click="addToCart(product.id)" class="primary-btn">
+      <button
+        @click="addToCart(product.id)"
+        class="primary-btn"
+        v-if="product.available"
+      >
         <i class="material-icons">add_shopping_cart</i>
       </button>
       <button class="catalog-item__btn primary-btn">

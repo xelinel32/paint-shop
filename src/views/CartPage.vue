@@ -3,7 +3,7 @@
     <div class="cart-page__head">
       <p v-if="!CART.length">Корзина пуста</p>
       <p>
-        Сумма: <b>{{ cartCost }} USD</b>
+        Сумма: <b>{{ cartCost | priceFormat }}</b>
       </p>
     </div>
     <cart-item
