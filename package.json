@@ -13,7 +13,9 @@
     "core-js": "^3.6.5",
     "reset-css": "^5.0.1",
     "vue": "^2.6.11",
+    "vue-page-transition": "^0.2.2",
     "vue-router": "^3.3.4",
+    "vue-select": "^3.10.7",
     "vuex": "^3.5.1"
   },
   "devDependencies": {
@@ -41,7 +43,8 @@
     },
     "rules": {
       "no-console": "off",
-      "no-debugger": "off"
+      "no-debugger": "off",
+      "valid-typeof": "off"
     }
   },
   "browserslist": [

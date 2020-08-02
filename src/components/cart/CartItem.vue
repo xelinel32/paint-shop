@@ -9,7 +9,7 @@
         Name: <strong>{{ cartSingle.name }}</strong>
       </li>
       <li>
-        Price: <strong>{{ cartSingle.price }}</strong>
+        Price: <strong>{{ cartSingle.price | priceFormat }}</strong>
       </li>
       <li>
         Category: <strong>{{ cartSingle.category }}</strong>

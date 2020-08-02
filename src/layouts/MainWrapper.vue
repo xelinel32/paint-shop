@@ -2,7 +2,9 @@
   <div class="main-wrapper">
     <div class="container">
       <keep-alive>
-        <router-view></router-view>
+        <vue-page-transition name="overlay-left">
+          <router-view />
+        </vue-page-transition>
       </keep-alive>
     </div>
   </div>

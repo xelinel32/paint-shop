@@ -11,7 +11,7 @@
         Name: <strong>{{ product.name }}</strong>
       </li>
       <li>
-        Price: <strong>{{ product.price }} USD</strong>
+        Price: <strong>{{ product.price | priceFormat }}</strong>
       </li>
       <li>
         Category: <strong>{{ product.category }}</strong>
