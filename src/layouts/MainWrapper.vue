@@ -16,4 +16,11 @@
   }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+  .main-wrapper {
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+</style>

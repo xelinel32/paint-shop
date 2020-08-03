@@ -11,7 +11,7 @@
       ></v-select>
       <vue-slider
         v-model="sliderValue"
-        :tooltip="'active'"
+        :tooltip="'always'"
         :tooltip-formatter="sliderValueFormatter"
         :min="0"
         :max="10000"
@@ -65,7 +65,7 @@
         },
       ],
       products: [],
-      selectValue: '',
+      selectValue: { name: 'All', value: 'all' },
       sliderValue: [0, 10000],
       sliderValueFormatter: '{value} USD',
     }),
@@ -110,7 +110,6 @@
     mounted() {
       this.FETCH_PRODUCTS().then((data) => {
         if (data.length) {
-          // this.products = data
           this.isLoading = false
         }
       })

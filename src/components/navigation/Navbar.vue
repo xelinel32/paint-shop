@@ -1,9 +1,9 @@
 <template>
   <div class="navbar">
     <div class="navbar__logo">
-      <router-link to="/"
-        ><img src="../../assets/logo.png" alt="logo"
-      /></router-link>
+      <router-link to="/">
+        <img src="../../assets/logo.png" alt="logo" />
+      </router-link>
     </div>
     <ul class="navbar__menu">
       <router-link
@@ -11,14 +11,16 @@
         active-class="active"
         class="navbar__menu-item"
         to="/managment"
-        ><a href="#">Managment</a></router-link
+      >
+        <a href="#">Managment</a></router-link
       >
       <router-link
         tag="li"
         active-class="active"
         class="navbar__menu-item"
         to="/contact"
-        ><a href="#">Contact</a></router-link
+      >
+        <a href="#">Contact</a></router-link
       >
       <cart :cart="CART"></cart>
     </ul>

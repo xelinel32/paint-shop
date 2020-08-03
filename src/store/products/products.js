@@ -41,9 +41,7 @@ export default {
   actions: {
     async FETCH_PRODUCTS({ commit }) {
       try {
-        const productFetch = await axios('http://localhost:8080/products', {
-          method: 'GET',
-        })
+        const productFetch = await axios.get('http://localhost:8080/products')
         const products = productFetch.data
         commit('SET_PRODUCTS', products)
         return products
