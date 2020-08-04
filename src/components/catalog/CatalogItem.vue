@@ -89,7 +89,14 @@
     components: { PopupItem },
     methods: {
       addToCart() {
-        this.$store.dispatch('ADD_TO_CART', this.product)
+        this.$store.dispatch('ADD_TO_CART', this.product).then(() => {
+          let cartMessage = {
+            id: Date.now().toLocaleString(),
+            name: 'Product added in basket',
+            icon: 'check_circle_outline',
+          }
+          this.$emit('setMessage', cartMessage)
+        })
       },
       showInfo() {
         this.isVisible = !this.isVisible

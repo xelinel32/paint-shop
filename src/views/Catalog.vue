@@ -1,5 +1,6 @@
 <template>
   <div class="catalog">
+    <notification :messages="messages"></notification>
     <h1 class="catalog__title primary-title">Catalog</h1>
     <div class="catalog__controls">
       <v-select
@@ -26,6 +27,7 @@
         v-for="product in sortedProducts"
         :key="product.id"
         :product="product"
+        @setMessage="setMessage"
       >
       </catalog-item>
     </div>
@@ -36,6 +38,7 @@
   import CatalogItem from '@/components/catalog/CatalogItem'
   import VueSlider from 'vue-slider-component'
   import vSelect from 'vue-select'
+  import Notification from '@/components/notification/Notification'
   import { mapActions, mapGetters } from 'vuex'
   export default {
     name: 'Catalog',
@@ -43,6 +46,7 @@
       CatalogItem,
       vSelect,
       VueSlider,
+      Notification,
     },
     data: () => ({
       isLoading: true,
@@ -64,6 +68,7 @@
           value: 'black',
         },
       ],
+      messages: [],
       products: [],
       selectValue: { name: 'All', value: 'all' },
       sliderValue: [0, 10000],
@@ -105,6 +110,9 @@
             this.products.push(product)
           }
         })
+      },
+      setMessage(data) {
+        this.messages.unshift(data)
       },
     },
     mounted() {
