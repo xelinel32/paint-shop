@@ -55,8 +55,8 @@
   .notification {
     z-index: 20;
     width: 350px;
-    position: absolute;
-    top: 15%;
+    position: fixed;
+    top: 10%;
     right: 2%;
     overflow: hidden;
     &__content {
