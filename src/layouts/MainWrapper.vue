@@ -1,11 +1,11 @@
 <template>
   <div class="main-wrapper">
     <div class="container">
-      <keep-alive>
-        <vue-page-transition name="fade-in-up">
+      <vue-page-transition name="fade-in-up">
+        <keep-alive>
           <router-view />
-        </vue-page-transition>
-      </keep-alive>
+        </keep-alive>
+      </vue-page-transition>
     </div>
   </div>
 </template>

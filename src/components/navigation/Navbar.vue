@@ -6,24 +6,15 @@
       </router-link>
     </div>
     <ul class="navbar__menu">
-      <router-link
-        tag="li"
-        active-class="active"
-        class="navbar__menu-item"
-        to="/managment"
-      >
+      <router-link tag="li" class="navbar__menu-item" to="/managment">
         <a href="#">Managment</a></router-link
       >
-      <router-link
-        tag="li"
-        active-class="active"
-        class="navbar__menu-item"
-        to="/contact"
-      >
+      <router-link tag="li" class="navbar__menu-item" to="/contact">
         <a href="#">Contact</a></router-link
       >
       <cart :cart="CART"></cart>
     </ul>
+    <div class="navbar__search"></div>
   </div>
 </template>
 
@@ -60,15 +51,15 @@
     &__menu {
       display: flex;
       align-items: center;
+      margin-left: auto;
       &-item {
         margin: 0 10px;
-        background-color: $white;
         padding: 10px 15px;
         transition: background-color 0.3s linear;
         a {
           text-decoration: none;
           font-size: 18px;
-          color: #000;
+          color: $white;
           transition: color 0.2s linear;
         }
         &.active {

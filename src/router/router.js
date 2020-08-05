@@ -5,6 +5,9 @@ Vue.use(Router)
 
 const router = new Router({
   mode: 'history',
+  base: '/',
+  linkExactActiveClass: '',
+  linkActiveClass: 'active',
   routes: [
     {
       name: 'catalog',
@@ -44,8 +47,12 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title
-  next()
+  if (typeof to.meta.title !== 'undefined') {
+    document.title = to.meta.title
+    next()
+  } else {
+    document.title = 'Paint Shop'
+  }
 })
 
 export default router
