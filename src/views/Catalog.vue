@@ -5,7 +5,6 @@
     <div class="catalog__controls">
       <v-select
         label="name"
-        placeholder="Chose paint category"
         :options="options"
         v-model="selectValue"
         @input="sortByCategories"
@@ -77,11 +76,7 @@
     computed: {
       ...mapGetters(['PRODUCTS']),
       sortedProducts() {
-        if (this.products.length) {
-          return this.products
-        } else {
-          return this.PRODUCTS
-        }
+        return this.products
       },
     },
     methods: {
@@ -94,13 +89,6 @@
               product.price <= this.sliderValue[1]
             )
           })
-        } else {
-          this.products = this.PRODUCTS.filter((product) => {
-            return (
-              product.price >= this.sliderValue[0] &&
-              product.price <= this.sliderValue[1]
-            )
-          })
         }
       },
       sortByCategories(catData) {
@@ -108,16 +96,29 @@
         this.PRODUCTS.map((product) => {
           if (product.category === catData.value) {
             this.products.push(product)
+          } else if (catData.value === 'all') {
+            this.products = this.PRODUCTS
           }
         })
       },
       setMessage(data) {
         this.messages.unshift(data)
       },
+      sortBySearchName() {
+        let valueSearch = this.$route.query.searchName
+        if (valueSearch) {
+          this.products = this.PRODUCTS.filter((item) => {
+            return item.name.toLowerCase().includes(valueSearch.toLowerCase())
+          })
+        } else {
+          this.products = this.PRODUCTS
+        }
+      },
     },
     mounted() {
       this.FETCH_PRODUCTS().then((data) => {
         if (data.length) {
+          this.sortBySearchName()
           this.isLoading = false
         }
       })

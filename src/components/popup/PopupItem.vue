@@ -10,7 +10,7 @@
       <slot name="content"></slot>
     </div>
     <div class="popup-item__footer">
-      <button @click="closePopup">Close</button>
+      <slot name="content-btn"></slot>
     </div>
   </div>
 </template>

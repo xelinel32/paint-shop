@@ -10,12 +10,25 @@ const router = new Router({
   linkActiveClass: 'active',
   routes: [
     {
+      path: '*',
+      redirect: '/catalog',
+    },
+    {
       name: 'catalog',
-      path: '/',
+      path: '/catalog',
       component: () => import('../views/Catalog.vue'),
       props: true,
       meta: {
         title: 'Paint Shop | Home',
+      },
+    },
+    {
+      name: 'product',
+      path: '/product/:viewName',
+      component: () => import('../views/Product.vue'),
+      props: true,
+      meta: {
+        title: 'Paint Shop | Product',
       },
     },
     {

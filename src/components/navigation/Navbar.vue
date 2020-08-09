@@ -14,20 +14,35 @@
       >
       <cart :cart="CART"></cart>
     </ul>
-    <div class="navbar__search"></div>
+    <button class="navbar__search" @click="isOpenSearch">
+      <i class="material-icons">search</i>
+    </button>
+    <transition name="search-fade-in">
+      <search v-if="isOpenSearchField" @closeSearch="isOpenSearch"></search>
+    </transition>
   </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
   import Cart from '@/components/cart/Cart'
+  import Search from '@/components/navigation/Search'
   export default {
     name: 'Navbar',
+    components: {
+      Cart,
+      Search,
+    },
+    data: () => ({
+      isOpenSearchField: false,
+    }),
     computed: {
       ...mapGetters(['CART']),
     },
-    components: {
-      Cart,
+    methods: {
+      isOpenSearch() {
+        this.isOpenSearchField = !this.isOpenSearchField
+      },
     },
   }
 </script>
@@ -71,5 +86,23 @@
         }
       }
     }
+    &__search {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      margin-left: 15px;
+      cursor: pointer;
+      i {
+        color: $white;
+      }
+    }
+  }
+  .search-fade-in-enter-active,
+  .search-fade-in-leave-active {
+    transition: opacity 0.5s;
+  }
+  .search-fade-in-enter,
+  .search-fade-in-leave-to {
+    opacity: 0;
   }
 </style>

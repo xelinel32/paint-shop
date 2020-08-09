@@ -31,6 +31,9 @@
             />
           </div>
         </template>
+        <template v-slot:content-btn>
+          <button @click="viewInfo(product.name)">View</button>
+        </template>
       </popup-item>
     </transition>
     <div class="catalog-item__pic">
@@ -100,6 +103,12 @@
       },
       showInfo() {
         this.isVisible = !this.isVisible
+      },
+      viewInfo(value) {
+        this.$router.push({
+          name: 'product',
+          params: { viewName: value },
+        })
       },
     },
   }
