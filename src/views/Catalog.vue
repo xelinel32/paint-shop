@@ -30,6 +30,7 @@
       >
       </catalog-item>
     </div>
+    <promotion :products="PRODUCTS"></promotion>
   </div>
 </template>
 

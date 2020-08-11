@@ -24,11 +24,20 @@ const router = new Router({
     },
     {
       name: 'product',
-      path: '/product/:viewName',
+      path: '/catalog/:viewName',
       component: () => import('../views/Product.vue'),
       props: true,
       meta: {
-        title: 'Paint Shop | Product',
+        title: 'Paint Shop | Product - ',
+      },
+      beforeEnter(to, from, next) {
+        if (to.params.viewName) {
+          let currProd = to.params.viewName
+          document.title = to.meta.title = `Paint Shop | Product - ${currProd}`
+          next()
+        } else {
+          next()
+        }
       },
     },
     {

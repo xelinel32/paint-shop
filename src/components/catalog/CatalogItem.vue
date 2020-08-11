@@ -109,6 +109,7 @@
           name: 'product',
           params: { viewName: value },
         })
+        this.showInfo()
       },
     },
   }
