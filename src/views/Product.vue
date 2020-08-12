@@ -25,16 +25,16 @@
         </li>
       </ul>
       <!-- tabs -->
-      <vue-tabs>
-        <v-tab title="First tab">
-          First tab content
+      <vue-tabs activeTabColor="#000" @tab-change="handleTabChange">
+        <v-tab title="Information">
+          {{ product.description }}
         </v-tab>
 
-        <v-tab title="Second tab">
+        <v-tab title="Specification">
           Second tab content
         </v-tab>
 
-        <v-tab title="Third tab">
+        <v-tab title="Feedback">
           Third tab content
         </v-tab>
       </vue-tabs>
@@ -45,10 +45,15 @@
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
+  import { VueTabs, VTab } from 'vue-nav-tabs/dist/vue-tabs'
   export default {
     name: 'Product',
     props: {
       viewName: String,
+    },
+    components: {
+      VueTabs,
+      VTab,
     },
     computed: {
       ...mapGetters(['PRODUCTS']),
@@ -64,6 +69,9 @@
     },
     methods: {
       ...mapActions(['FETCH_PRODUCTS']),
+      handleTabChange(tabIndex) {
+        console.log(tabIndex)
+      },
     },
     async mounted() {
       await this.FETCH_PRODUCTS()
@@ -72,6 +80,7 @@
 </script>
 
 <style lang="scss">
+  @import '~vue-nav-tabs/themes/material.scss';
   .product {
     &__block {
       max-width: 900px;
@@ -79,6 +88,36 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      &-desc {
+        list-style-type: none;
+        margin-bottom: 20px;
+        li {
+          line-height: 25px;
+          font-size: 16px;
+          strong {
+            font-weight: 700;
+            &.active {
+              background: greenyellow;
+              padding: 2px 5px;
+              border-radius: 3px;
+            }
+            &.no-active {
+              background: indianred;
+              padding: 2px 5px;
+              border-radius: 3px;
+            }
+          }
+        }
+      }
+    }
+    .vue-tabs {
+      width: 100%;
+      .nav-tabs {
+        background-color: #0984e3;
+        & > li {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 </style>

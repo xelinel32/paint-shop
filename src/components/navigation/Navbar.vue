@@ -97,12 +97,4 @@
       }
     }
   }
-  .search-fade-in-enter-active,
-  .search-fade-in-leave-active {
-    transition: opacity 0.5s;
-  }
-  .search-fade-in-enter,
-  .search-fade-in-leave-to {
-    opacity: 0;
-  }
 </style>

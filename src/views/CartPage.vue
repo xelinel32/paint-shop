@@ -6,12 +6,15 @@
         Сумма: <b>{{ cartCost | priceFormat }}</b>
       </p>
     </div>
-    <cart-item
-      v-for="(i, idx) in CART"
-      :key="idx"
-      :cartSingle="i"
-      @deleteFromCart="deleteFromCart(idx)"
-    ></cart-item>
+    <transition-group name="search-fade-in">
+      <cart-item
+        v-for="(i, idx) in CART"
+        :key="i.id"
+        :cartSingle="i"
+        @deleteFromCart="deleteFromCart(idx)"
+      >
+      </cart-item>
+    </transition-group>
   </div>
 </template>
 

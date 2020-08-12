@@ -1,9 +1,13 @@
 <template>
   <div class="cart-item">
-    <img
-      :src="require('../../assets/images/' + cartSingle.image)"
-      :alt="cartSingle.name"
-    />
+    <router-link
+      :to="{ name: 'product', params: { viewName: cartSingle.name } }"
+    >
+      <img
+        :src="require('../../assets/images/' + cartSingle.image)"
+        :alt="cartSingle.name"
+      />
+    </router-link>
     <ul class="cart-item__info">
       <li>
         Name: <strong>{{ cartSingle.name }}</strong>
