@@ -1,6 +1,6 @@
 # paint-shop
 
-![Paint Shop][show.png]
+![Paint Shop](show.png)
 
 ## Project setup
 ```
