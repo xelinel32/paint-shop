@@ -3,7 +3,7 @@
     {
       "id": 0,
       "image": "1.jpg",
-      "name": "Justed",
+      "name": "Paint Justed",
       "price": 2100.234234234,
       "available": true,
       "category": "red",
@@ -12,7 +12,7 @@
     {
       "id": 1,
       "image": "2.jpg",
-      "name": "T-shirt 2",
+      "name": "Paint Two",
       "price": 3150.12312412,
       "available": true,
       "category": "black",
@@ -21,7 +21,7 @@
     {
       "id": 2,
       "image": "3.jpg",
-      "name": "T-shirt 3",
+      "name": "Paint Three",
       "price": 4200.51524,
       "available": false,
       "category": "red",
@@ -30,7 +30,7 @@
     {
       "id": 3,
       "image": "4.jpg",
-      "name": "T-shirt 4",
+      "name": "Paint My",
       "price": 5300.1245512,
       "available": true,
       "category": "blue",
@@ -39,7 +39,7 @@
     {
       "id": 4,
       "image": "5.jpg",
-      "name": "T-shirt 5",
+      "name": "Paint Fake",
       "price": 6500.3522314,
       "available": false,
       "category": "blue",
@@ -48,7 +48,7 @@
     {
       "id": 5,
       "image": "6.jpg",
-      "name": "T-shirt 6",
+      "name": "Paint GG",
       "price": 8700.4124123,
       "available": true,
       "category": "black",
