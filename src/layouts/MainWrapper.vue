@@ -13,6 +13,15 @@
 <script>
   export default {
     name: 'MainWrapper',
+    created() {
+      this.$router.beforeEach((to, from, next) => {
+        this.$Progress.start()
+        next()
+      })
+      this.$router.afterEach((to, from) => {
+          this.$Progress.finish()
+      })
+    },
   }
 </script>
 
