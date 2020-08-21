@@ -1,5 +1,7 @@
 # paint-shop
 
+![Paint Shop](show.png)
+
 ## Project setup
 ```
 npm install
