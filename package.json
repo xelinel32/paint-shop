@@ -17,9 +17,11 @@
     "vue-awesome-swiper": "^4.1.1",
     "vue-nav-tabs": "^0.5.7",
     "vue-page-transition": "^0.2.2",
+    "vue-progressbar": "^0.7.5",
     "vue-router": "^3.3.4",
     "vue-select": "^3.10.7",
     "vue-slider-component": "^3.2.2",
+    "vuejs-paginate": "^2.1.0",
     "vuex": "^3.5.1"
   },
   "devDependencies": {
@@ -48,7 +50,8 @@
     "rules": {
       "no-console": "off",
       "no-debugger": "off",
-      "valid-typeof": "off"
+      "valid-typeof": "off",
+      "no-unused-vars": "off"
     }
   },
   "browserslist": [

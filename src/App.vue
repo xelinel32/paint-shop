@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div class="wrapper">
+      <vue-progress-bar></vue-progress-bar>
       <navbar></navbar>
       <main-wrapper></main-wrapper>
       <footer-main></footer-main>
