@@ -29,6 +29,16 @@
         @setMessage="setMessage"
       >
       </catalog-item>
+      <paginate
+        v-model="page"
+        :page-count="pageCount"
+        :click-handler="pageChangeHandler"
+        :prev-text="'Prev'"
+        :next-text="'Next'"
+        :container-class="'pagination'"
+        :page-class="'page'"
+      >
+      </paginate>
     </div>
     <promotion :products="PRODUCTS"></promotion>
   </div>
@@ -39,6 +49,7 @@
   import VueSlider from 'vue-slider-component'
   import vSelect from 'vue-select'
   import Notification from '@/components/notification/Notification'
+  import paginateMixin from '@/mixins/paginate.mixin'
   import { mapActions, mapGetters } from 'vuex'
   export default {
     name: 'Catalog',
@@ -48,6 +59,7 @@
       VueSlider,
       Notification,
     },
+    mixins: [paginateMixin],
     data: () => ({
       isLoading: true,
       options: [
@@ -77,14 +89,14 @@
     computed: {
       ...mapGetters(['PRODUCTS']),
       sortedProducts() {
-        return this.products
+        return this.items
       },
     },
     methods: {
       ...mapActions(['FETCH_PRODUCTS']),
       setSliderRange() {
-        if (this.products.length) {
-          this.products = this.products.filter((product) => {
+        if (this.items.length) {
+          this.items = this.items.filter((product) => {
             return (
               product.price >= this.sliderValue[0] &&
               product.price <= this.sliderValue[1]
@@ -93,12 +105,13 @@
         }
       },
       sortByCategories(catData) {
-        this.products = []
+        this.items = []
         this.PRODUCTS.map((product) => {
           if (product.category === catData.value) {
-            this.products.push(product)
+            this.items.push(product)
           } else if (catData.value === 'all') {
-            this.products = this.PRODUCTS
+            this.items = this.PRODUCTS
+            this.$router.push('catalog')
           }
         })
       },
@@ -108,11 +121,11 @@
       sortBySearchName() {
         let valueSearch = this.$route.query.searchName
         if (valueSearch) {
-          this.products = this.PRODUCTS.filter((item) => {
+          this.items = this.PRODUCTS.filter((item) => {
             return item.name.toLowerCase().includes(valueSearch.toLowerCase())
           })
         } else {
-          this.products = this.PRODUCTS
+          this.items = this.PRODUCTS
         }
       },
     },
@@ -120,6 +133,7 @@
       this.FETCH_PRODUCTS().then((data) => {
         if (data.length) {
           this.sortBySearchName()
+          this.setupPagination(data)
           this.isLoading = false
         }
       })
@@ -144,6 +158,27 @@
       .v-select {
         cursor: pointer;
         width: 280px;
+      }
+    }
+  }
+  .pagination {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    margin: 20px auto;
+    .page {
+      margin: 0 5px;
+      &.active a {
+        background: greenyellow;
+      }
+      a {
+        display: block;
+        background: #ccc;
+        transition: background 0.3s ease;
+        padding: 5px 8px;
+        border: 1px solid $black;
+        outline: none;
       }
     }
   }
