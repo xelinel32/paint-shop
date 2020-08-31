@@ -12,7 +12,7 @@ export default {
     SET_TO_CART(state, product) {
       product.quantity = 1
       let isProductExist = false
-      state.cart.map((item) => {
+      state.cart.forEach((item) => {
         if (item.id === product.id) {
           isProductExist = true
           item.quantity++
